@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0A0E13">
+  <meta name="format-detection" content="telephone=no">
+  <title>Правовая информация — Kodoch</title>
+  <meta name="description"
+    content="Правовая информация сайта Kodoch: политика конфиденциальности, использование cookie, условия использования.">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Правовая информация — Kodoch">
+  <meta property="og:description" content="Политика конфиденциальности, cookies, условия использования.">
+  <meta property="og:url" content="https://kodoch.tech/legal/">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="container header-inner">
+      <a href="../index.html" class="logo">
+        <span class="logo-mark">K</span>
+        Kodoch
+      </a>
+
+      <nav class="nav" id="nav">
+        <a href="../services.html">Услуги</a>
+        <a href="../government.html">Требования 2026</a>
+        <a href="../why-automation.html">Зачем автоматизировать</a>
+        <a href="../about.html">Почему мы</a>
+        <a href="../pricing.html">Цены</a>
+      </nav>
+
+      <a href="../index.html#contact" class="btn btn-primary header-cta">Обсудить задачу →</a>
+
+      <button class="burger" id="burger" aria-label="Меню">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.5"
+          stroke-linecap="round" aria-hidden="true">
+          <path d="M3 7h16M3 11h16M3 15h16" />
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="breadcrumbs">
+        <a href="../index.html">Главная</a>
+        <span class="sep">/</span>
+        <span class="current">Правовая информация</span>
+      </div>
+
+      <span class="eyebrow">Правовая информация</span>
+
+      <h1>
+        Документы<br>
+        <span class="accent">и условия</span>
+      </h1>
+
+      <p class="hero-lead">
+        Документы, которые определяют порядок работы с сайтом и обработки
+        персональных данных. Все ссылки — в открытом доступе.
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="legal-hub-grid">
+        <a href="./privacy.html" class="legal-hub-card reveal">
+          <span class="legal-hub-num">01 · Документ</span>
+          <h3>Политика конфиденциальности</h3>
+          <p>
+            Как мы обрабатываем и защищаем персональные данные пользователей
+            сайта. Состав данных, цели, основания, передача третьим лицам,
+            права субъекта.
+          </p>
+          <span class="legal-hub-cta">Читать →</span>
+        </a>
+
+        <a href="./cookies.html" class="legal-hub-card reveal">
+          <span class="legal-hub-num">02 · Документ</span>
+          <h3>Использование cookie</h3>
+          <p>
+            Какие cookie использует сайт, зачем, на какой срок, как отключить
+            и что произойдёт, если отказаться.
+          </p>
+          <span class="legal-hub-cta">Читать →</span>
+        </a>
+
+        <a href="./terms.html" class="legal-hub-card reveal">
+          <span class="legal-hub-num">03 · Документ</span>
+          <h3>Условия использования</h3>
+          <p>
+            Правила работы с сайтом, права на контент, ограничение
+            ответственности, порядок разрешения споров.
+          </p>
+          <span class="legal-hub-cta">Читать →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <a href="../index.html" class="footer-logo">Kodoch</a>
+
+      <nav class="footer-nav">
+        <a href="../services.html">Услуги</a>
+        <a href="../government.html">Требования 2026</a>
+        <a href="../why-automation.html">Зачем автоматизировать</a>
+        <a href="../about.html">Почему мы</a>
+        <a href="../pricing.html">Цены</a>
+        <a href="./privacy.html">Конфиденциальность</a>
+        <a href="./cookies.html">Cookies</a>
+        <a href="./terms.html">Условия</a>
+      </nav>
+
+      <div class="footer-copy">© 2026</div>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) header.classList.add('scrolled');
+      else header.classList.remove('scrolled');
+    }, {passive: true});
+
+    const burger = document.getElementById('burger');
+    const nav = document.getElementById('nav');
+    if (burger && nav) {
+      burger.addEventListener('click', () => nav.classList.toggle('open'));
+      nav.querySelectorAll('a').forEach(a =>
+        a.addEventListener('click', () => nav.classList.remove('open'))
+      );
+    }
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, {threshold: 0.1, rootMargin: '0px 0px -60px 0px'});
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+
+</html>
