@@ -660,7 +660,7 @@
     window.addEventListener('scroll', () => {
       if (window.scrollY > 20) header.classList.add('scrolled');
       else header.classList.remove('scrolled');
-    }, {passive: true});
+    }, { passive: true });
 
     const burger = document.getElementById('burger');
     const nav = document.getElementById('nav');
@@ -679,7 +679,7 @@
         if (target) {
           e.preventDefault();
           const top = target.getBoundingClientRect().top + window.pageYOffset - 80;
-          window.scrollTo({top, behavior: 'smooth'});
+          window.scrollTo({ top, behavior: 'smooth' });
         }
       });
     });
@@ -710,7 +710,7 @@
         const btnLoader = submitBtn.querySelector('.btn-loader');
         const resultBox = document.getElementById('form-result');
 
-        if (!leadForm.checkValidity()) {leadForm.reportValidity(); return;}
+        if (!leadForm.checkValidity()) { leadForm.reportValidity(); return; }
 
         submitBtn.disabled = true;
         btnText.style.display = 'none';
@@ -719,13 +719,13 @@
 
         try {
           const formData = new FormData(leadForm);
-          const response = await fetch('https://api.web3forms.com/submit', {method: 'POST', body: formData});
+          const response = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData });
           const data = await response.json();
           if (data.success) {
             resultBox.textContent = 'Заявка отправлена. Свяжемся в течение рабочего дня.';
             resultBox.className = 'form-result success';
             leadForm.reset();
-          } else {throw new Error();}
+          } else { throw new Error(); }
         } catch (err) {
           resultBox.textContent = 'Не удалось отправить. Напишите на hello@kodoch.tech';
           resultBox.className = 'form-result error';
@@ -744,7 +744,7 @@
           observer.unobserve(e.target);
         }
       });
-    }, {threshold: 0.1, rootMargin: '0px 0px -60px 0px'});
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
 
