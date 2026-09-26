@@ -1,1 +1,1 @@
-# KODOCH AI Security Agency | Coming soon
+# KODOCH AI Security Agency Website
