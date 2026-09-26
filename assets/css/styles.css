@@ -18,6 +18,9 @@
   --accent-dim: rgba(0, 229, 160, 0.08);
   --accent-border: rgba(0, 229, 160, 0.24);
 
+  --ink: #C91B00;
+  --ink-2: white;
+
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
 
@@ -2115,5 +2118,89 @@ p {
 
   .timeline-body p {
     font-size: 14.5px;
+  }
+}
+
+
+.dev-banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--ink);
+  border-bottom: 1px solid var(--line);
+  padding: 10px 0;
+}
+
+.dev-banner-inner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+  letter-spacing: -0.005em;
+}
+
+.dev-banner-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-dim);
+  animation: pulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+.dev-banner-text {
+  flex: 1;
+  color: white;
+}
+
+.dev-banner-close {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink-2);
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: all 0.15s;
+  flex-shrink: 0;
+}
+
+.dev-banner-close:hover {
+  background: var(--surface);
+  color: var(--ink);
+  border-color: var(--ink-3);
+}
+
+body.dev-banner-visible .header {
+  top: 41px;
+}
+
+body.dev-banner-visible .hero {
+  padding-top: 220px;
+}
+
+@media (max-width: 720px) {
+  .dev-banner-inner {
+    font-size: 12.5px;
+  }
+
+  .dev-banner-text {
+    font-size: 13px;
+  }
+
+  body.dev-banner-visible .header {
+    top: 44px;
+  }
+
+  body.dev-banner-visible .hero {
+    padding-top: 200px;
   }
 }
