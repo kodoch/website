@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /404.html
+Disallow: /coming-soon.html
+
+Sitemap: https://kodoch.tech/sitemap.xml
